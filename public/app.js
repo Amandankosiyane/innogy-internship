@@ -1,4 +1,6 @@
 $('#login').on('click', function() {
+        location.href = "slots.html";
+
               var showAlertMessage = document.getElementById("showMessage");
               var name = document.getElementById('addName').value.toUpperCase();
               var password = document.getElementById('addPassword').value;
@@ -7,8 +9,6 @@ $('#login').on('click', function() {
                       showAlertMessage.innerHTML = "These fields must not be empty"
                       return false;
               }
-        //       var addDisplay = document.getElementById("showInfo");
-
               var addDetails = {
                       Name: name,
                       Password: password,
@@ -17,7 +17,7 @@ $('#login').on('click', function() {
               console.log(addDetails);
               $.ajax({
                       type: "POST",
-                      url: 'http://localhost:3500/api/plumber/',
+                      url: 'https://tranquil-scrubland-72485.herokuapp.com/api/plumber',
                       dataType: "json",
                       data: addDetails,
                       success: function(data) {
@@ -34,3 +34,14 @@ $('#login').on('click', function() {
               password = "";
               contact = "";
       })
+
+      $(document).ready(function() {
+       $('#mycheckbox').change(function() {
+           $('#mycheckboxdiv').toggle();
+       });
+   });
+      $(document).ready(function() {
+       $('#mycheckbox2').change(function() {
+           $('#mycheckboxdiv2').toggle();
+       });
+   });

@@ -41,8 +41,38 @@ const plumberName = function(req, res, next) {
                                       {foundPlumbers:foundPlumbers})
                       })
 }
+
+const bookPlumber = function(req,res,next){
+        days = req.params.day;
+        Name = req.body.Name;
+        Contact = req.body.Contact;
+        Password = req.body.Password
+        slot = req.params.slot;
+        var slotObject = {};
+        if (!Array.isArray(days)) {
+   days = [days];
+ }
+ slot.forEach(function(slot) {
+   slotObject[slot] = true
+ })
+ models.plumberInfo.findOneAndUpdate({
+     Name: Name,
+     Contact: Contact,
+     Password: Password
+   },{
+     Slot: slotObject,
+     Days: days
+   },
+   function(err, plumberNames) {
+     if (err) {
+       console.log(err);
+     }
+     res.json({plumberNames:plumberNames})
+})
+}
 return {
         addNewPlumber,
-        plumberName
+        plumberName,
+        bookPlumber
 }
 }

@@ -43,6 +43,7 @@ app.use(express.static('public'));
 
 app.get('/api/plumber',  plumberRoutes.plumberName);
 app.post('/api/plumber', plumberRoutes.addNewPlumber);
+app.post('/api/plumber/slot/:slot/day/:day', plumberRoutes.bookPlumber)
 
 const port = process.env.PORT || 3500;
 app.listen(port, function() {

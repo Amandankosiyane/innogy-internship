@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
 <style media="screen">
-          .mycheckbox  > input {width: 100px; height: 100px;}
-
+.form-inline {
+    padding:10px;
+}
+.form-inline > * {
+    margin:15px 3px !important;
+}
 </style>
         <head>
                 <meta charset="utf-8">
@@ -14,100 +18,60 @@
 <div class="container">
         <div class="row">
                 <h1 class="text-center">SLOTS</h1>
-                <div class="col-lg-2">
-                        <label for="">Monday:
-                        <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                        </label>
-        <div id="mycheckboxdiv" style="display:none">
-                <label for="">Morning:</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                <label for="">Midday:</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                <label for="">Afternoon</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-        </div>
-        </div>
-                <div class="col-lg-2">
-                        <label for="">Tuesday:
-                        <input type="checkbox" name="mycheckbox" id="mycheckbox2" value="0" />
-                        </label>
-        <div id="mycheckboxdiv2" style="display:none">
-                <label for="">Morning:</label>
-                <input type="checkbox" name="mycheckbox2" id="mycheckbox2" value="0" />
-                <label for="">Midday:</label>
-                <input type="checkbox" name="mycheckbox2" id="mycheckbox2" value="0" />
-                <label for="">Afternoon</label>
-                <input type="checkbox" name="mycheckbox2" id="mycheckbox2" value="0" />
-        </div>
-        </div>
-                <div class="col-lg-2">
-                        <label for="">Wednesday
-                        <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                        </label>
-        <div id="mycheckboxdiv" style="display:none">
-                <label for="">Morning:</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                <label for="">Midday:</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                <label for="">Afternoon</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-        </div>
-        </div>
-                <div class="col-lg-2">
-                        <label for="">Thursday:
-                        <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                        </label>
-        <div id="mycheckboxdiv" style="display:none">
-                <label for="">Morning:</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                <label for="">Midday:</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                <label for="">Afternoon</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-        </div>
-        </div>
-                <div class="col-lg-2">
-                        <label for="">Friday:
-                        <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                        </label>
-        <div id="mycheckboxdiv" style="display:none">
-                <label for="">Morning:</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                <label for="">Midday:</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                <label for="">Afternoon</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-        </div>
-        </div>
-                <div class="col-lg-2">
-                        <label for="">Saturday:
-                        <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                        </label>
-        <div id="mycheckboxdiv" style="display:none">
-                <label for="">Morning:</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                <label for="">Midday:</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                <label for="">Afternoon</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-        </div>
-        </div>
-                <div class="col-lg-2">
-                        <label for="">Sunday:
-                        <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                        </label>
-        <div id="mycheckboxdiv" style="display:none">
-                <label for="">Morning:</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                <label for="">Midday:</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-                <label for="">Afternoon</label>
-                <input type="checkbox" name="mycheckbox" id="mycheckbox" value="0" />
-        </div>
-        </div>
+                <br><br>
 
+<form class="form-inline" action="" method="post">
+        <label class="form-check-label">
+        <input id="monday" type="checkbox" class="form-check-input" value="monday">
+        <b><i>Monday</i></b>
+      </label>
+        <label class="form-check-label">
+        <input id="tuesday" type="checkbox" class="form-check-input" value="tuesday">
+        <b><i>Tuesday</i></b>
+      </label>
+        <label class="form-check-label">
+        <input id="wednesday" type="checkbox" class="form-check-input" value="wednesday">
+        <b><i>Wednesday</i></b>
+      </label>
+        <label class="form-check-label">
+        <input id="thursday" type="checkbox" class="form-check-input" value="thursday">
+        <b><i>Thursday</i></b>
+      </label>
+        <label class="form-check-label">
+        <input id="friday" type="checkbox" class="form-check-input" value="friday">
+        <b><i>Friday</i></b>
+      </label>
+        <label class="form-check-label">
+        <input id="saturday" type="checkbox" class="form-check-input" value="saturday">
+        <b><i>Saturday</i></b>
+      </label>
+        <label class="form-check-label">
+        <input id="sunday" type="checkbox" class="form-check-input" value="sunday">
+        <b><i>Sunday</i></b>
+      </label>
+      <br><br><br>
+<div class="col-md-4">
+        <label class="radio-inline">
+        <input id="morning"  name="" value="morning" type="radio" />
+        <b><i>Morning</i></b></label>
+        <label class="radio-inline">
+        <input id="midday"  name="" value="midday" type="radio" />
+        <b><i>Midday</i></b></label>
+        <label class="radio-inline">
+        <input id="afternoon"  name="" value="afternoon" type="radio" />
+        <b><i>Afternoon</i></b></label>
+</div>
+<br>
+<br>
+<div class="col-xs-2">
+        <ul class="pager">
+                <li style="float: left"><a href="#" id="submit">Submit</a></li>
+        </ul>
+        <!-- <button style="float: left" class=" btn btn-success" type="submit">Submit</button> -->
 
-
+</div>
+                </div>
+        </form>
                 </div>
         </div>
         <script src="app.js" charset="utf-8"></script>

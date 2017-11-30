@@ -33,6 +33,7 @@ module.exports = function(models) {
         }
 
         const bookPlumber = function(req, res, next) {
+                // console.log(req.body["Slot[]"]);
                 var plumber = req.body;
                 // var slot = req.body.slot;
                 var days = req.body.Days;
@@ -42,12 +43,14 @@ module.exports = function(models) {
                 if (!Array.isArray(days)) {
                         days = [days];
                 }
+
                 days.forEach(function(day) {
                         console.log(day);
                         if (daysObj[day] === undefined) {
                                 daysObj[day] = true;
-                        } 
-                })
+                        }
+                });
+
                 models.plumberInfo.findOneAndUpdate({
                         Name: plumber.Name,
                         Password: plumber.Password,
@@ -56,13 +59,13 @@ module.exports = function(models) {
                                 Slot: plumber.Slot,
                                 Days: daysObj
                         },
-                        function(err, plumberNames) {
-                                console.log(plumberNames);
+                        function(err, availablePlumber) {
+                                console.log(availablePlumber);
                                 if (err) {
                                         return next(err)
                                 }
                                 res.json({
-                                        plumberNames: plumberNames
+                                        availablePlumber: availablePlumber
                                 })
                         })
         }

@@ -10,8 +10,8 @@ module.exports = function(mongoUrl) {
                         bcrypt: true
                 },
                 Contact: String,
-                Slot: Object,
-                Days: Array
+                Slot: Array,
+                Days: Object
         });
 
         const plumberInfo = mongoose.model('plumberInfo', plumberSchema);

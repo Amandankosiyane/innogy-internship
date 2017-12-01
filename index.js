@@ -1,8 +1,8 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
-// const flash = require('express-flash');
-// const session = require('express-session');
+const flash = require('express-flash');
+const session = require('express-session');
 const PlumberRoutes = require('./plumbers.js');
 const Models = require('./models');
 // const ObjectId = require("mongodb").ObjectId;
@@ -29,21 +29,24 @@ app.use(bodyParser.json())
 
 app.use(express.static('public'));
 
-// app.use(session({
-//         secret: 'keyboard cat',
-//         cookie: {
-//                 maxAge: 60000 * 30
-//         }
-// }));
-// app.use(flash());
+app.use(session({
+        secret: 'keyboard cat',
+        cookie: {
+                maxAge: 60000 * 30
+        }
+}));
+app.use(flash());
 
 // app.post('/', function(req, res) {
 //         res.redirect('/');
 // })
 
-app.get('/api/plumber',  plumberRoutes.plumberName);
-app.post('/api/plumber', plumberRoutes.addNewPlumber);
+app.post('/api/plumber/username/:username/contact/:contact',  plumberRoutes.waiterAccess);
+// app.post('/plumbers/:username', plumberRoutes.days);
+// app.post('/api/plumber/username/:username',  plumberRoutes.addNewPlumber);
+app.get('/api/plumber', plumberRoutes.plumberName);
 app.post('/api/plumber/slot', plumberRoutes.bookPlumber)
+app.post('/api/plumber/slot/:slot/days/:days', plumberRoutes.book)
 
 const port = process.env.PORT || 3500;
 app.listen(port, function() {

@@ -11,7 +11,7 @@ module.exports = function(mongoUrl) {
                 },
                 Contact: String,
                 Slot: Array,
-                Days: Object
+                Days: Array
         });
 
         const plumberInfo = mongoose.model('plumberInfo', plumberSchema);

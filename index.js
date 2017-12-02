@@ -37,16 +37,10 @@ app.use(session({
 }));
 app.use(flash());
 
-// app.post('/', function(req, res) {
-//         res.redirect('/');
-// })
 
-app.post('/api/plumber/username/:username/contact/:contact',  plumberRoutes.waiterAccess);
-// app.post('/plumbers/:username', plumberRoutes.days);
-// app.post('/api/plumber/username/:username',  plumberRoutes.addNewPlumber);
 app.get('/api/plumber', plumberRoutes.plumberName);
-app.post('/api/plumber/slot', plumberRoutes.bookPlumber)
-app.post('/api/plumber/slot/:slot/days/:days', plumberRoutes.book)
+app.get('/api/availablePlumber', plumberRoutes.availablePlumbers);
+app.post('/api/plumber/', plumberRoutes.book)
 
 const port = process.env.PORT || 3500;
 app.listen(port, function() {

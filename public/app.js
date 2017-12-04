@@ -5,7 +5,7 @@ $(document).ready(function(){
 
                // Ajax call to display the plumbers available
                $.ajax({
-                       url: '/api/plumber',
+                       url: 'https://tranquil-scrubland-72485.herokuapp.com/api/plumber',
                        type: 'GET',
                        success: function(data) {
                                console.log("***************************************************************************************======", data.foundPlumbers),
@@ -22,7 +22,7 @@ $(document).ready(function(){
 
 //Ajax call to book a plumber
         $('#showPlumberInfo').on('click', function(e) {
-
+                var showAlertMessage = document.getElementById("showMessage");
                       var table = document.getElementById("template").innerHTML;
                       var theTemplate = Handlebars.compile(table);
                       var day = document.querySelector("#day").value
@@ -31,13 +31,12 @@ $(document).ready(function(){
                       var plumberId = e.target.value;
 
                       $.ajax({
-                              url: '/api/plumber/booked/id/'+plumberId+'/days/'+day+'/slot/'+slot+'/description/'+description,
+                              url: 'https://tranquil-scrubland-72485.herokuapp.com/api/plumber/booked/id/'+plumberId+'/days/'+day+'/slot/'+slot+'/description/'+description,
                               type: 'POST',
                               dataType: 'application/json',
                               data: {_id: plumberId,Days: day,Slot:slot,Description: description, },
                               success: function(data) {
-                                      console.log("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr", data.results);
-                              },
+showAlertMessage.innerHTML = "Successfully booked"                              },
                               error: function(error) {
                                 //       alert(error)
                               }
@@ -46,7 +45,6 @@ $(document).ready(function(){
 
 //Ajax to register a plumber
 $('#login').on('click', function() {
-        alert('i am working')
         var showAlertMessage = document.getElementById("showMessage");
         var name = document.getElementById('addName').value.toLowerCase();
         var contact = document.getElementById('addContact').value;
@@ -56,20 +54,19 @@ $('#login').on('click', function() {
                var values = $(this).val();
                final += values;
            });
-           alert(final);
         var slot = '';
            $('#slot:checked').each(function(){
                var values = $(this).val();
                slot += values;
            });
-           alert(slot);
         $.ajax({
                 type: "POST",
-                url: "/api/plumber/",
+                url: "https://tranquil-scrubland-72485.herokuapp.com/api/plumber/",
                 dataType: "json",
                 data:{ Name:name,Contact: contact, location:location, Slot: slot, Days: final},
                 success: function(data) {
                         console.log("=========================================", data.availablePlumber);
+                        showAlertMessage.innerHTML = "You successfully registered"
                 },
                 error: function(error) {
                 }

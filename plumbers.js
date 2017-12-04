@@ -1,50 +1,9 @@
+"use strict";
+const ObjectId = require("mongodb").ObjectId;
 module.exports = function(models) {
-
-
-        const waiterAccess = function(req, res, next) {
-
-                       var firstLetter = req.params.username.substring(0, 1);
-                       var uppercase = req.params.username.substring(0, 1).toUpperCase()
-                       var username = req.params.username.replace(firstLetter, uppercase);
-                       var contact = req.params.contact
-                       var days = req.body.day
+               const addPlumber = function(req,res,next){
                        models.plumberInfo.findOne({
-                                       Name: username,
-                                       Contact: contact
-                               },
-                               function(err, results) {
-                                //        console.log(results);
-                                       if (err) {
-                                               return next(err)
-                                       } else {
-                                               if (results) {
-                                                       var data = {
-                                                               Name: results.Name,
-                                                               Contact: results.Contact
-                                                       }
-                                                       res.json({data:data})
-                                               }
-                                       }
-                                       if (!results) {
-                                               models.plumberInfo.create({
-                                                       Name: username,
-                                                       Contact: contact
-                                               }, function(err, results) {
-                                                       if (err) {
-                                                               return next(err)
-                                                       }
-                                                       res.json({results:results})
-                                               })
-                                       }
-                               })
-               }
-
-               const book = function(req,res,next){
-                       models.plumberInfo.findOne({
-                               Name:req.body.Name,
-                               Contact: req.body.Contact,
-                               Slot: req.body.Slot,
-                               Days: req.body.Days
+                               Name:req.body.Name
                        }, function(err, availablePlumber){
                                if (err) {
                                        return next(err)
@@ -53,8 +12,10 @@ module.exports = function(models) {
                                                var availablePlumber = {
                                                        Name: availablePlumber.Name,
                                                        Contact: availablePlumber.Contact,
-                                                       Slot: availablePlumber.Slot,
-                                                       Days: availablePlumber.Days
+                                                     location: availablePlumber.location,
+                                                     Slot: availablePlumber.Slot,
+                                                     Days: availablePlumber.Days,
+                                                     Description: availablePlumber.Description
                                                }
                                                res.json({availablePlumber:availablePlumber})
                                        }
@@ -62,8 +23,10 @@ module.exports = function(models) {
                                     models.plumberInfo.create({
                                                     Name:req.body.Name,
                                                     Contact: req.body.Contact,
+                                                    location: req.body.location,
                                                     Slot: req.body.Slot,
-                                                    Days: req.body.Days
+                                                    Days: req.body.Days,
+                                                    Description: req.body.Description
                                                     },
                                                     function(err, availablePlumber) {
                                                             console.log(availablePlumber);
@@ -105,7 +68,7 @@ module.exports = function(models) {
                               });
                       }
 
-        const plumberName = function(req, res, next) {
+        const AllPlumbers = function(req, res, next) {
                 models.plumberInfo.find({}, function(err, foundPlumbers) {
                         if (err) {
                                 return next(err)
@@ -116,9 +79,56 @@ module.exports = function(models) {
                 })
         }
 
+        const bookAPlumber = function(req,res,next){
+                var plumber = req.body;
+                var _id = req.params._id;
+
+                // var hiringData = {
+                        // Days: req.params.Days,
+                        // Slot: req.params.Slot
+
+                models.plumberInfo.findOneAndUpdate({
+                        _id: _id
+                },{
+                        $push: {
+                                Days: req.params.day,
+                                Slot: req.params.slot,
+                                Description: req.params.description
+},
+                }, function(err, results){
+                        if (err) {
+                                return next(err)
+                        }
+                        models.plumberInfo.findOne({
+                                _id: _id
+                        }, function(err, results){
+                                console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", results);
+                                if (err) {
+                                        return next(err)
+                                }
+                                res.json({results: results})
+                        })
+                })
+        }
+
+const bookedDays = function(req,res,next){
+        var _id = req.params._id
+        models.plumberInfo.findOne({
+                _id: _id
+        }, function(err,results){
+                if (err) {
+                        return next(err)
+                }
+                res.json({results:results})
+        })
+
+}
+
         return {
-                plumberName,
-                book,
-                availablePlumbers
+                AllPlumbers,
+                addPlumber,
+                availablePlumbers,
+                bookAPlumber,
+                bookedDays
         }
 }

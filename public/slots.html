@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <style media="screen">
-ul {
-   list-style: none;
-}
+        .form-inline {
+                padding: 10px;
+        }
 
+        .form-inline>* {
+                margin: 15px 3px !important;
+        }
 </style>
 
 <head>
@@ -41,76 +44,19 @@ ul {
                                 <table id="tableData" class="table table-striped table-hover table-bordered table-list-search" style="word-wrap: break-word;min-width: 200px;max-width: 500px;">
                                         <thead>
                                                 <tr class="content" data-type="data">
-                                                        <th class="th danger text-center" style="border-radius: 5px">Monday</th>
-                                                        <!-- <th class="th danger text-center" style="border-radius: 5px">Tuesday</th>
-                                                        <th class="th danger text-center" style="border-radius: 5px">Wednesday</th>
-                                                        <th class="th danger text-center" style="border-radius: 5px">Thursday</th>
-                                                        <th class="th danger text-center" style="border-radius: 5px">Friday</th>
-                                                        <th class="th danger text-center" style="border-radius: 5px">Saturday</th>
-                                                        <th class="th danger text-center" style="border-radius: 5px">Sunday</th> -->
+                                                        <th class="th danger text-center" style="border-radius: 5px">NAME</th>
+                                                        <th class="th danger text-center" style="border-radius: 5px">CONTACT</th>
+                                                        <th class="th danger text-center" style="border-radius: 5px">SLOT</th>
+                                                        <th class="th danger text-center" style="border-radius: 5px">DAYS</th>
                                                 </tr>
                                         </thead>
                                         <tbody>
-                                                <!-- <ul style="list-style: none;">
-                                                        <div class="col-sm-1"> -->
-                             <td class="">
-                                     {{#each mon}}
-                                     <td class="td active" style="border-radius: 5px">{{Name}}</td>
-                                     <!-- <td class="td active" style="border-radius: 5px">{{Contact}}</td>
-                                     <td class="td active" style="border-radius: 5px">{{Slot}}</td> -->
-                                     {{/each}}
-                             </td>
-                     </div>
-                                                        <!-- <div class="col-sm-1">
-                             <td class="">
-                                     {{#each tue}}
-                                     <li>{{this}}</li>
-                                     {{/each}}
-                             </td>
-                     </div>
-                                                        <div class="col-sm-1">
-                             <td class="">
-                                     {{#each wed}}
-                                     <li>{{this}}</li>
-                                     {{/each}}
-                             </td>
-                     </div>
-                                                        <div class="col-sm-1">
-                             <td class="">
-                                     {{#each thur}}
-                                     <li>{{this}}</li>
-                                     {{/each}}
-                             </td>
-                     </div>
-                                                        <div class="col-sm-1">
-                             <td class="">
-                                     {{#each fri}}
-                                     <li>{{this}}</li>
-                                     {{/each}}
-                             </td>
-                     </div>
-                                                        <div class="col-sm-1">
-                             <td class="">
-                                     {{#each sat}}
-                                     <li>{{this}}</li>
-                                     {{/each}}
-                             </td>
-                     </div>
-                                                        <div class="col-sm-1">
-                             <td class="">
-                                     {{#each sun}}
-                                     <li>{{this}}</li>
-                                     {{/each}}
-                             </td>
-                     </div> -->
-                                                <!-- </ul> -->
-
-                                                <!-- {{#each plumber}}
+                                                {{#each plumber}}
                                                 <tr class="content" data-type="data">
                                                         <td class="td active" style="border-radius: 5px">{{Name}}</td>
                                                         <td class="td active" style="border-radius: 5px">{{Contact}}</td>
                                                         <td class="td active" style="border-radius: 5px">{{Slot}}</td>
-                                                        <td class="td active" style="border-radius: 5px">{{Days}}</td> -->
+                                                        <td class="td active" style="border-radius: 5px">{{Days}}</td>
                                                         <!-- <td class="td active" style="border-radius: 5px"> R {{Price}}.00 <br>
                                                                                         <div class=" popup col-1">
                                                                                                 <form class=" form-group" method="post">
@@ -118,8 +64,8 @@ ul {
                                                                                                 </form>
                                                                                         </div>
                                                                                 </td> -->
-                                                <!-- </tr>
-                                                {{/each}} -->
+                                                </tr>
+                                                {{/each}}
                                         </tbody>
                                 </table>
                         </div>

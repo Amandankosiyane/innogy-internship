@@ -5,7 +5,7 @@ const flash = require('express-flash');
 const session = require('express-session');
 const PlumberRoutes = require('./plumbers.js');
 const Models = require('./models');
-// const ObjectId = require("mongodb").ObjectId;
+const ObjectId = require("mongodb").ObjectId;
 const models = Models(process.env.MONGO_DB_URL || 'mongodb://localhost/plumberApi');
 const plumberRoutes = PlumberRoutes(models);
 const app = express();
@@ -38,9 +38,11 @@ app.use(session({
 app.use(flash());
 
 
-app.get('/api/plumber', plumberRoutes.plumberName);
-app.get('/api/availablePlumber', plumberRoutes.availablePlumbers);
-app.post('/api/plumber/', plumberRoutes.book)
+app.get('/api/plumber/Availability', plumberRoutes.availablePlumbers);
+app.get('/api/plumber', plumberRoutes.AllPlumbers);
+app.post('/api/plumber/', plumberRoutes.addPlumber)
+app.post('/api/plumber/booked/id/:_id/days/:day/slot/:slot/description/:description', plumberRoutes.bookAPlumber)
+app.get('/api/plumber/booked/id/:_id', plumberRoutes.bookedDays)
 
 const port = process.env.PORT || 3500;
 app.listen(port, function() {

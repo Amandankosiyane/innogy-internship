@@ -133,7 +133,7 @@ $ heroku open
 
 
 
-###Future plans
+### Future plans
 
 - Plumbers should be able to update their days and slot.
 - Plumbers should be able to see who have booked on the specific days and slots.

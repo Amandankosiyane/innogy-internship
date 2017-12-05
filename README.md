@@ -1,23 +1,23 @@
 # innogy-internship
 
-##About
+## About
 
 This ia an application that allow customers to book registered plumbers for a morning, midday or afternoon slot for a given week day. It should give the user an appropriate message when there are no available plumbers for the time slot chosen. If the slot is available it should display the plumber's name and contact details to the user who booked the slot.
 
-##Customers will able to :
+## Customers will able to :
 
 - See the available plumbers in the shop.
 - Book the plumber for that specific day or slot(but still having a minor problem).
 
 
-##Plumbers will be able to:
+## Plumbers will be able to:
 
 - Register for the days that they will be available to work on.
 - Update the days when they will no longer be available.
 - See the customers that have booked for the specific days and slot.
 
 
-##Let's start
+## Let's start
 
 - Clone my [repository](https://github.com/Amandankosiyane/innogy-internship) from github to your machine.
 - Copy and paste the following code to your terminal:
@@ -131,8 +131,6 @@ $ heroku open
 - [MLAB](https://mlab.com/) - Cloud database service that hosts [MongoDB](https://www.mongodb.com/) databases.
 - [npm](https://www.npmjs.com/) - Package manager for JavaScript software.
 
-## By:
-[Amanda Nkosiyane](https://github.com/Amandankosiyane) codeX student.
 
 
 ###Future plans
@@ -140,8 +138,19 @@ $ heroku open
 - Plumbers should be able to update their days and slot.
 - Plumbers should be able to see who have booked on the specific days and slots.
 - Customers should be able to book properly.
+- Apply restrictions.
+- Create authentication.
+- Update customer details(location, cellphone numbers).
 
 
 ## By:
 [Amanda Nkosiyane](https://github.com/Amandankosiyane) codeX student
+
+
+
+
+
+
+
+
 

@@ -141,6 +141,7 @@ $ heroku open
 - Apply restrictions.
 - Create authentication.
 - Update customer details(location, cellphone numbers).
+- Fix the layout using bootstrap.
 
 
 ## By:
